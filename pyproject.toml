@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "icebreaker_sketches"
+version = "0.1.0"
+description = "Sketch projects for Lattice FPGA Icebreaker"
+authors = ["Joshua Koike <jk@tilting.me>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+nmigen = {git = "https://github.com/nmigen/nmigen.git"}
+nmigen-boards = {git = "https://github.com/TiltMeSenpai/nmigen-boards.git"}
+
+
+[tool.poetry.dev-dependencies]
+jupyter = "^1.0.0"
+matplotlib = "^3.1.3"
+pylint = "^2.4.4"
+autopep8 = "^1.5"
+apio = "^0.4.1"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
