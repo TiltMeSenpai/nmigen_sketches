@@ -8,7 +8,7 @@ import itertools
 
 class Main(Elaboratable):
     def __init__(self):
-        self.in_port  = Signal(10, reset = 0xFF)
+        self.in_port  = Signal(8)
         self.out_port = Signal(signed(8))
 
     def elaborate(self, platform):

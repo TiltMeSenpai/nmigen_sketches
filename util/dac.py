@@ -8,7 +8,7 @@ class PWM(Elaboratable):
         self.accumulator  = Signal(inport.width, reset = ((2 ** inport.width) - 1))
     def elaborate(self, platform):
         m = Module()
-        m.d.comb += self.out.eq(self.inport_stash > self.accumulator)
+        m.d.sync += self.out.eq(self.inport_stash > self.accumulator)
         m.d.sync += self.accumulator.eq(self.accumulator - 1)
         with m.If(self.accumulator == 0):
             m.d.sync += [
@@ -26,7 +26,7 @@ class DeltaSigma(Elaboratable):
     def elaborate(self, platform):
         m = Module()
 
-        m.d.comb += self.out_port.eq(self.accumulator[-1])
+        m.d.sync += self.out_port.eq(self.accumulator[-1])
         m.d.sync += self.accumulator.eq(self.accumulator[:-1] + self.in_port)
 
         return m
